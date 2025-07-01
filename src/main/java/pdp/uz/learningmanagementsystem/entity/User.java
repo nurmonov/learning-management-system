@@ -1,18 +1,15 @@
 package pdp.uz.learningmanagementsystem.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import jakarta.persistence.*;
+import lombok.*;
 import pdp.uz.learningmanagementsystem.entity.enums.Role;
 
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
-@Data
+@Getter
+@Setter
+@ToString
 public class User extends AbsIntegerEntity  {
 
 
@@ -21,5 +18,6 @@ public class User extends AbsIntegerEntity  {
     private String password;
     private String profileImage;
 
+    @Enumerated(EnumType.STRING)
     private Role role;
 }
