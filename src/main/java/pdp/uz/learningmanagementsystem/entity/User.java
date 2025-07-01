@@ -24,12 +24,15 @@ public class User extends AbsIntegerEntity  {
     private Role role;
 
     @OneToMany(mappedBy = "author")
+    @ToString.Exclude
     private List<Comment> comments;
 
     @OneToMany(mappedBy = "user")
+    @ToString.Exclude
     private List<Enrollment> enrollments;
 
     @OneToMany(mappedBy = "teacher")
+    @ToString.Exclude
     private List<Course> courses;
 
 }

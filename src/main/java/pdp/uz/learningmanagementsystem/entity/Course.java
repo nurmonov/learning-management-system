@@ -30,6 +30,7 @@ public class Course extends AbsIntegerEntity {
     private User teacher;
 
     @OneToMany(mappedBy = "course")
+    @ToString.Exclude
     private List<Lesson> lessons;
 
 }
