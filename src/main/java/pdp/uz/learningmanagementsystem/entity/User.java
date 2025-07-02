@@ -12,6 +12,7 @@ import java.util.List;
 @Getter
 @Setter
 @ToString
+@Table(name="users")
 public class User extends AbsIntegerEntity  {
 
 
