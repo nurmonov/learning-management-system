@@ -24,7 +24,7 @@ public class EnrollmentController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<ApiResult<EnrollmentDto>> findEnrollmentById(@RequestParam Integer id){
+    public ResponseEntity<ApiResult<EnrollmentDto>> findEnrollmentById(@PathVariable Integer id){
         ApiResult<EnrollmentDto> enrollmentById = enrollmentService.getEnrollmentById(id);
         return ResponseEntity.ok(enrollmentById);
     }
@@ -36,13 +36,13 @@ public class EnrollmentController {
     }
 
     @PutMapping("/update/{id}")
-    public ResponseEntity<ApiResult<Enrollment>> updateCourse(@RequestParam Integer id, @RequestBody EnrollmentDto courseDto){
+    public ResponseEntity<ApiResult<Enrollment>> updateCourse(@PathVariable Integer id, @RequestBody EnrollmentDto courseDto){
         ApiResult<Enrollment> courseDtoApiResult = enrollmentService.updateEnrollment(id, courseDto);
         return ResponseEntity.ok(courseDtoApiResult);
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<ApiResult<Object>> deleteCourse(@RequestParam Integer id){
+    public ResponseEntity<ApiResult<Object>> deleteCourse(@PathVariable Integer id){
         ApiResult<Object> objectApiResult = enrollmentService.deleteEnrollment(id);
         return ResponseEntity.ok(objectApiResult);
     }
