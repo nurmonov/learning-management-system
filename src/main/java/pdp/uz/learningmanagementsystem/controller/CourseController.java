@@ -24,7 +24,7 @@ public class CourseController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<ApiResult<CourseDto>> findCourseById(@RequestParam Integer id){
+    public ResponseEntity<ApiResult<CourseDto>> findCourseById(@PathVariable Integer id){
         ApiResult<CourseDto> courseById = courseService.getCourseById(id);
         return ResponseEntity.ok(courseById);
     }
@@ -36,13 +36,13 @@ public class CourseController {
     }
 
     @PutMapping("/update/{id}")
-    public ResponseEntity<ApiResult<CourseDto>> updateCourse(@RequestParam Integer id,@RequestBody CourseDto courseDto){
+    public ResponseEntity<ApiResult<CourseDto>> updateCourse(@PathVariable Integer id,@RequestBody CourseDto courseDto){
         ApiResult<CourseDto> courseDtoApiResult = courseService.updateCourse(id, courseDto);
         return ResponseEntity.ok(courseDtoApiResult);
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<ApiResult<Object>> deleteCourse(@RequestParam Integer id){
+    public ResponseEntity<ApiResult<Object>> deleteCourse(@PathVariable Integer id){
         ApiResult<Object> objectApiResult = courseService.deleteCourse(id);
         return ResponseEntity.ok(objectApiResult);
     }

@@ -24,7 +24,7 @@ public class LessonController {
 
 
     @GetMapping("/{id}")
-    public ResponseEntity<ApiResult<LessonDto>> findLessonById(@RequestParam Integer id){
+    public ResponseEntity<ApiResult<LessonDto>> findLessonById(@PathVariable Integer id){
         ApiResult<LessonDto> categoryById = lessonService.getCategoryById(id);
         return ResponseEntity.ok(categoryById);
     }
@@ -36,7 +36,7 @@ public class LessonController {
     }
 
     @PutMapping("/update/{id}")
-    public ResponseEntity<ApiResult<Object>> updateLesson(@RequestParam Integer id, @RequestParam LessonDto lessonDto){
+    public ResponseEntity<ApiResult<Object>> updateLesson(@PathVariable Integer id, @RequestParam LessonDto lessonDto){
         ApiResult<Object> objectApiResult = lessonService.updateLesson(id, lessonDto);
         return ResponseEntity.ok(objectApiResult);
     }

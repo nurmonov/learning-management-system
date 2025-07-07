@@ -17,7 +17,7 @@ public class CommentController {
     private final CommentService commentService;
 
     @GetMapping("/{id}")
-    public ResponseEntity<ApiResult<CommentDto>> findByIdComments(@RequestParam Integer id){
+    public ResponseEntity<ApiResult<CommentDto>> findByIdComments(@PathVariable Integer id){
         ApiResult<CommentDto> commentById = commentService.getCommentById(id);
         return ResponseEntity.ok(commentById);
 
@@ -37,14 +37,14 @@ public class CommentController {
     }
 
     @PutMapping("/update/{id}")
-    public ResponseEntity<ApiResult<CommentDto>> updateComment(@RequestParam Integer id, @RequestBody CommentDto commentDto){
+    public ResponseEntity<ApiResult<CommentDto>> updateComment(@PathVariable Integer id, @RequestBody CommentDto commentDto){
         ApiResult<CommentDto> commentDtoApiResult = commentService.updateComment(id, commentDto);
         return ResponseEntity.ok(commentDtoApiResult);
 
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<ApiResult<Object>> deleteComment(@RequestParam Integer id){
+    public ResponseEntity<ApiResult<Object>> deleteComment(@PathVariable Integer id){
         ApiResult<Object> objectApiResult = commentService.deleteComment(id);
         return ResponseEntity.ok(objectApiResult);
     }
